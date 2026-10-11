@@ -1,0 +1,31 @@
+order_id,order_date,customer,region,product,category,quantity,unit_price,discount
+1001,2026-01-04,Aarav Shah,West,Laptop,Electronics,1,72000,0.05
+1002,2026-01-08,Meera Iyer,South,Wireless Mouse,Electronics,2,900,0.00
+1003,2026-01-15,Rohan Das,East,Office Chair,Furniture,1,6500,0.10
+1004,2026-01-22,Ananya Rao,North,Notebook,Stationery,5,120,0.00
+1005,2026-02-02,Kabir Khan,West,Desk,Furniture,1,9800,0.07
+1006,2026-02-10,Isha Nair,South,Keyboard,Electronics,2,1800,0.05
+1007,2026-02-14,Dev Patel,North,Pen Set,Stationery,10,80,0.00
+1008,2026-02-21,Tara Sen,East,Monitor,Electronics,1,14500,0.08
+1009,2026-03-03,Aarav Shah,West,Headphones,Electronics,1,3200,0.10
+1010,2026-03-08,Meera Iyer,South,Bookshelf,Furniture,1,7600,0.12
+1011,2026-03-17,Rohan Das,East,Notebook,Stationery,8,120,0.00
+1012,2026-03-25,Ananya Rao,North,Laptop,Electronics,1,70000,0.04
+1013,2026-04-01,Kabir Khan,West,Office Chair,Furniture,2,6200,0.10
+1014,2026-04-09,Isha Nair,South,Monitor,Electronics,1,15200,0.06
+1015,2026-04-18,Dev Patel,North,Desk,Furniture,1,10200,0.05
+1016,2026-04-23,Tara Sen,East,Wireless Mouse,Electronics,3,850,0.00
+1017,2026-05-05,Aarav Shah,West,Keyboard,Electronics,1,1900,0.00
+1018,2026-05-12,Meera Iyer,South,Pen Set,Stationery,12,75,0.00
+1019,2026-05-20,Rohan Das,East,Laptop,Electronics,1,73500,0.06
+1020,2026-05-29,Ananya Rao,North,Bookshelf,Furniture,1,8000,0.15
+1021,2026-06-04,Kabir Khan,West,Monitor,Electronics,2,14800,0.07
+1022,2026-06-11,Isha Nair,South,Notebook,Stationery,6,115,0.00
+1023,2026-06-16,Dev Patel,North,Headphones,Electronics,2,3100,0.05
+1024,2026-06-28,Tara Sen,East,Desk,Furniture,1,9700,0.08
+1025,2026-07-02,Aarav Shah,West,Pen Set,Stationery,15,70,0.00
+1026,2026-07-07,Meera Iyer,South,Laptop,Electronics,1,71000,0.03
+1027,2026-07-19,Rohan Das,East,Office Chair,Furniture,1,6400,0.10
+1028,2026-07-27,Ananya Rao,North,Wireless Mouse,Electronics,2,950,0.00
+1029,2026-08-04,Kabir Khan,West,Bookshelf,Furniture,1,7900,0.12
+1030,2026-08-12,Isha Nair,South,Headphones,Electronics,1,3300,0.09
