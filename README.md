@@ -1,12 +1,13 @@
-# PySpark Project: Sales ETL and Analytics
+# Sales ETL Analytics With PySpark
 
-This project shows how PySpark is used in a typical data engineering workflow:
+This project is a small PySpark data pipeline that turns raw order data into cleaned sales records, data quality checks, and business-ready KPI outputs.
 
 1. Read raw CSV data
-2. Clean and validate rows
-3. Create useful calculated columns
-4. Group data to answer business questions
-5. Save cleaned data for future analysis
+2. Apply an explicit schema
+3. Run data quality checks
+4. Clean and enrich records
+5. Build KPI tables
+6. Save outputs for analysis
 
 ## Project Structure
 
@@ -65,27 +66,38 @@ You can also run it with Python:
 python .\src\main.py
 ```
 
+You can pass custom input and output paths:
+
+```powershell
+spark-submit .\src\main.py --input .\data\sales.csv --output .\output
+```
+
 ## What The Script Does
 
 The script reads the CSV file into a Spark DataFrame, then:
 
-- removes rows with missing important values
+- applies a defined schema instead of guessing column types
+- checks row counts, unique orders, missing values, and invalid numeric values
+- removes rows with missing or invalid important values
 - converts `order_date` into a real date column
-- converts quantity, price, and discount into numeric columns
 - calculates `gross_sales`
 - calculates `discount_amount`
 - calculates `net_sales`
 - creates a `month` column for trend analysis
 - labels each row by discount size
+- labels each row by order size
 
 ## Questions This Project Answers
 
 When you run the script, it prints:
 
+- a data quality report
 - a preview of cleaned sales data
 - revenue by region
-- top products by revenue
+- revenue by category
+- product performance
 - monthly sales trend
+- top customers by revenue
 - orders with large discounts
 
 ## Output Files
@@ -93,14 +105,22 @@ When you run the script, it prints:
 After running, the `output` folder will contain:
 
 - `cleaned_sales_parquet/`: cleaned data in Parquet format
-- `revenue_by_region_csv/`: regional revenue summary as CSV
+- KPI output folders such as `revenue_by_region/`, `revenue_by_category/`, `product_performance/`, and `monthly_sales_trend/`
+- `data_quality_report/`: summary of input quality checks
+- `run_summary.json`: high-level metadata about the pipeline run
 
 Spark writes CSV and Parquet outputs as folders, not single files. That is normal.
 
 On some Windows machines, Spark may not be able to create Hadoop-style output folders unless Hadoop `winutils.exe` is configured. If that happens, this project automatically saves standard single CSV files instead:
 
 - `cleaned_sales.csv`
+- `data_quality_report.csv`
 - `revenue_by_region.csv`
+- `revenue_by_category.csv`
+- `product_performance.csv`
+- `monthly_sales_trend.csv`
+- `top_customers.csv`
+- `large_discount_orders.csv`
 
 The generated output files are ignored by Git so the repository stays focused on source code and sample input data.
 
@@ -112,11 +132,13 @@ Try changing `src/main.py` to answer these:
 - Who are the top 5 customers by spending?
 - Which month had the most orders?
 - What is the average discount by region?
-- Add a new column called `order_size` with values like `Small`, `Medium`, and `Large`
+- Add another data quality check for duplicate order IDs
+- Add a new KPI for product performance by region
 
 ## Key PySpark Concepts Practiced
 
 - `SparkSession`
+- explicit schemas
 - reading CSV files
 - DataFrames
 - `select`
@@ -124,5 +146,7 @@ Try changing `src/main.py` to answer these:
 - `withColumn`
 - `groupBy`
 - `agg`
+- data quality checks
+- command-line arguments
 - sorting with `orderBy`
 - writing Parquet and CSV files
