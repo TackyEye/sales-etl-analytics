@@ -18,7 +18,15 @@ sales-etl-analytics/
   output/
     .gitkeep
   src/
+    config.py
+    extract.py
+    kpis.py
     main.py
+    quality.py
+    reporting.py
+    spark_session.py
+    transform.py
+    writers.py
   .gitignore
   README.md
   requirements.txt
@@ -74,7 +82,7 @@ spark-submit .\src\main.py --input .\data\sales.csv --output .\output
 
 ## What The Script Does
 
-The script reads the CSV file into a Spark DataFrame, then:
+The pipeline reads the CSV file into a Spark DataFrame, then:
 
 - applies a defined schema instead of guessing column types
 - checks row counts, unique orders, missing values, and invalid numeric values
@@ -86,6 +94,18 @@ The script reads the CSV file into a Spark DataFrame, then:
 - creates a `month` column for trend analysis
 - labels each row by discount size
 - labels each row by order size
+
+## Code Organization
+
+- `main.py`: command-line entry point and pipeline orchestration
+- `config.py`: default paths and the sales schema
+- `spark_session.py`: Spark session creation
+- `extract.py`: CSV loading
+- `quality.py`: data quality checks
+- `transform.py`: cleaning and feature creation
+- `kpis.py`: analytics tables
+- `reporting.py`: console previews
+- `writers.py`: output writing and run summary creation
 
 ## Questions This Project Answers
 
